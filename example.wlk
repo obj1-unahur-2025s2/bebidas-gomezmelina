@@ -10,19 +10,19 @@ object tito {
     bebidaActual = nuevaBebida
   }
   method consumir(cantidad, bebida){
-    rendimiento = bebida.rendimiento(cantidad)
+    rendimiento = bebida.efecto(cantidad) 
   }
-  method velocidad() = (bebidaActual.rendimiento() * self.inercia())/self.peso() 
+  method velocidad() = (rendimiento * self.inercia())/self.peso() 
 }
 
 object whiskey {
-  method rendimiento(cantidad) = 0.9 ** cantidad
+  method efecto(cantidad) = 0.9 ** cantidad
 }
 
 object terere{
-  method rendimiento(cantidad) = (0.1 ** cantidad).min(1)
+  method efecto(cantidad) = (0.1 * cantidad).max(1)
 }
 
 object cianuro{
-  method rendimiento(cantidad) = 0 ** cantidad
+  method efecto(cantidad) = 0 
 }
